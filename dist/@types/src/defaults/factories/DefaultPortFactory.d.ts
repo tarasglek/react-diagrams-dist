@@ -1,6 +1,6 @@
 import { DefaultPortModel } from "../models/DefaultPortModel";
-import { AbstractPortFactory } from "../../factories/AbstractPortFactory";
-export declare class DefaultPortFactory extends AbstractPortFactory<DefaultPortModel> {
+import { PortFactory } from "../../AbstractFactory";
+export declare class DefaultPortFactory extends PortFactory<DefaultPortModel> {
     constructor();
     getNewInstance(initialConfig?: any): DefaultPortModel;
 }

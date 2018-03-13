@@ -10,7 +10,7 @@ export interface BaseModelListener extends BaseListener {
 /**
  * @author Dylan Vorster
  */
-export declare class BaseModel<X extends BaseEntity = BaseEntity, T extends BaseModelListener = BaseModelListener> extends BaseEntity<T> {
+export declare class BaseModel<X extends BaseEntity = BaseEntity, T extends BaseModelListener = BaseModelListener> extends BaseEntity<BaseModelListener> {
     type: string;
     selected: boolean;
     parent: X;

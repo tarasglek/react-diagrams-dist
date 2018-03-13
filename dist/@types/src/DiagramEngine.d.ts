@@ -4,10 +4,7 @@ import { BaseModel, BaseModelListener } from "./models/BaseModel";
 import { NodeModel } from "./models/NodeModel";
 import { PortModel } from "./models/PortModel";
 import { LinkModel } from "./models/LinkModel";
-import { AbstractLabelFactory } from "./factories/AbstractLabelFactory";
-import { AbstractLinkFactory } from "./factories/AbstractLinkFactory";
-import { AbstractNodeFactory } from "./factories/AbstractNodeFactory";
-import { AbstractPortFactory } from "./factories/AbstractPortFactory";
+import { LabelFactory, LinkFactory, NodeFactory, PortFactory } from "./AbstractFactory";
 import { LabelModel } from "./models/LabelModel";
 /**
  * @author Dylan Vorster
@@ -24,16 +21,16 @@ export interface DiagramEngineListener extends BaseListener {
  */
 export declare class DiagramEngine extends BaseEntity<DiagramEngineListener> {
     nodeFactories: {
-        [s: string]: AbstractNodeFactory;
+        [s: string]: NodeFactory;
     };
     linkFactories: {
-        [s: string]: AbstractLinkFactory;
+        [s: string]: LinkFactory;
     };
     portFactories: {
-        [s: string]: AbstractPortFactory;
+        [s: string]: PortFactory;
     };
     labelFactories: {
-        [s: string]: AbstractLabelFactory;
+        [s: string]: LabelFactory;
     };
     diagramModel: DiagramModel;
     canvas: Element;
@@ -62,25 +59,25 @@ export declare class DiagramEngine extends BaseEntity<DiagramEngineListener> {
     setDiagramModel(model: DiagramModel): void;
     getDiagramModel(): DiagramModel;
     getNodeFactories(): {
-        [s: string]: AbstractNodeFactory;
+        [s: string]: NodeFactory;
     };
     getLinkFactories(): {
-        [s: string]: AbstractLinkFactory;
+        [s: string]: LinkFactory;
     };
     getLabelFactories(): {
-        [s: string]: AbstractLabelFactory;
+        [s: string]: LabelFactory;
     };
-    registerLabelFactory(factory: AbstractLabelFactory): void;
-    registerPortFactory(factory: AbstractPortFactory): void;
-    registerNodeFactory(factory: AbstractNodeFactory): void;
-    registerLinkFactory(factory: AbstractLinkFactory): void;
-    getPortFactory(type: string): AbstractPortFactory;
-    getNodeFactory(type: string): AbstractNodeFactory;
-    getLinkFactory(type: string): AbstractLinkFactory;
-    getLabelFactory(type: string): AbstractLabelFactory;
-    getFactoryForNode(node: NodeModel): AbstractNodeFactory | null;
-    getFactoryForLink(link: LinkModel): AbstractLinkFactory | null;
-    getFactoryForLabel(label: LabelModel): AbstractLabelFactory | null;
+    registerLabelFactory(factory: LabelFactory): void;
+    registerPortFactory(factory: PortFactory): void;
+    registerNodeFactory(factory: NodeFactory): void;
+    registerLinkFactory(factory: LinkFactory): void;
+    getPortFactory(type: string): PortFactory;
+    getNodeFactory(type: string): NodeFactory;
+    getLinkFactory(type: string): LinkFactory;
+    getLabelFactory(type: string): LabelFactory;
+    getFactoryForNode(node: NodeModel): NodeFactory | null;
+    getFactoryForLink(link: LinkModel): LinkFactory | null;
+    getFactoryForLabel(label: LabelModel): LabelFactory | null;
     generateWidgetForLink(link: LinkModel): JSX.Element | null;
     generateWidgetForNode(node: NodeModel): JSX.Element | null;
     getRelativeMousePoint(event: any): {

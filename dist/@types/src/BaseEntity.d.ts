@@ -22,16 +22,10 @@ export declare class BaseEntity<T extends BaseListener = BaseListener> {
     locked: boolean;
     constructor(id?: string);
     getID(): string;
-    doClone(lookupTable: {
-        [s: string]: any;
-    }, clone: any): void;
-    clone(lookupTable?: {
-        [s: string]: any;
-    }): any;
+    doClone(lookupTable: {}, clone: any): void;
+    clone(lookupTable?: {}): any;
     clearListeners(): void;
-    deSerialize(data: {
-        [s: string]: any;
-    }, engine: DiagramEngine): void;
+    deSerialize(data: any, engine: DiagramEngine): void;
     serialize(): {
         id: string;
     };

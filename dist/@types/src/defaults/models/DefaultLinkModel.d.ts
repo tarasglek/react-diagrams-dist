@@ -8,10 +8,10 @@ import { LabelModel } from "../../models/LabelModel";
 export interface DefaultLinkModelListener extends LinkModelListener {
     colorChanged?(event: BaseEvent<DefaultLinkModel> & {
         color: null | string;
-    }): void;
+    }): any;
     widthChanged?(event: BaseEvent<DefaultLinkModel> & {
         width: 0 | number;
-    }): void;
+    }): any;
 }
 export declare class DefaultLinkModel extends LinkModel<DefaultLinkModelListener> {
     width: number;

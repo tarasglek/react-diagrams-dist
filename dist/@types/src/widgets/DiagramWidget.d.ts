@@ -1,8 +1,13 @@
 import { DiagramEngine } from "../DiagramEngine";
-import { BaseAction } from "../actions/BaseAction";
+import { BaseAction } from "../CanvasActions";
 import { BaseModel, BaseModelListener } from "../models/BaseModel";
 import { BaseEntity } from "../BaseEntity";
 import { BaseWidget, BaseWidgetProps } from "./BaseWidget";
+export interface SelectionModel {
+    model: BaseModel<BaseEntity, BaseModelListener>;
+    initialX: number;
+    initialY: number;
+}
 export interface DiagramProps extends BaseWidgetProps {
     diagramEngine: DiagramEngine;
     allowLooseLinks?: boolean;
@@ -29,8 +34,8 @@ export interface DiagramState {
  */
 export declare class DiagramWidget extends BaseWidget<DiagramProps, DiagramState> {
     static defaultProps: DiagramProps;
-    onKeyUpPointer: (this: Window, ev: KeyboardEvent) => void;
     constructor(props: DiagramProps);
+    onKeyUpPointer: null;
     componentWillUnmount(): void;
     componentWillReceiveProps(nextProps: DiagramProps): void;
     componentWillUpdate(nextProps: DiagramProps): void;

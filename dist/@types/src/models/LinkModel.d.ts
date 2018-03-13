@@ -69,6 +69,6 @@ export declare class LinkModel<T extends LinkModelListener = LinkModelListener> 
     removePointsBefore(pointModel: PointModel): void;
     removePointsAfter(pointModel: PointModel): void;
     removeMiddlePoints(): void;
-    addPoint<P extends PointModel>(pointModel: P, index?: number): P;
+    addPoint<T extends PointModel>(pointModel: T, index?: number): T;
     generatePoint(x?: number, y?: number): PointModel;
 }

@@ -1,1 +1,1 @@
-import "./.helpers/demo.scss";
+export {};

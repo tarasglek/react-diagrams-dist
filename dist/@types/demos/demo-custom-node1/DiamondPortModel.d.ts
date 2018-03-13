@@ -1,4 +1,6 @@
-import { LinkModel, DiagramEngine, PortModel } from "../../src/main";
+import { LinkModel } from "../../src/models/LinkModel";
+import { DiagramEngine } from "../../src/DiagramEngine";
+import { PortModel } from "../../src/models/PortModel";
 export declare class DiamondPortModel extends PortModel {
     position: string | "top" | "bottom" | "left" | "right";
     constructor(pos?: string);
