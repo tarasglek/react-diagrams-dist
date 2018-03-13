@@ -1,0 +1,22 @@
+diff --git a/webpack.config.js b/webpack.config.js
+index 7aa9489..999fa44 100644
+--- a/webpack.config.js
++++ b/webpack.config.js
+@@ -11,7 +11,8 @@ if(process.env.NODE_ENV === 'production'){
+ 		compress: {
+ 			keep_fnames: true,
+ 			warnings: false,
+-		}
++		},
++		sourceMap: true,
+ 	}));
+ 	plugins.push(new webpack.DefinePlugin({
+ 		'process.env.NODE_ENV': 'production',
+@@ -68,6 +69,6 @@ module.exports =
+ 		resolve: {
+ 			extensions: [".tsx", ".ts", ".js"]
+ 		},
+-		devtool: process.env.NODE_ENV === 'production'?false:'eval-cheap-module-source-map'
++		devtool: 'source-map'
+ 	}
+ ;
